@@ -35,7 +35,7 @@ h1 {
   font-size: 1.3em;
   color: #333;
   z-index: 10;
-  line-height: 1.6;
+  line-height: 2.0;
   /* ↓ 스크롤 제한 해제 */
   max-height: none;
   overflow: visible;
