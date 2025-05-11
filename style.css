@@ -166,3 +166,9 @@ button {
     bottom: 5px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .contact {
+    bottom: 60px; /* ← 더 위로 올림 (기존보다 높게) */
+  }
+}
