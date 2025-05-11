@@ -143,3 +143,26 @@ button {
 .contact a:hover {
   color: #0000FF; /* 마우스 오버 시 더 진하게 */
 }
+
+@media screen and (max-width: 768px) {
+  .intro {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+
+  .caption {
+    font-size: 0.8em;
+    max-width: 80%;
+  }
+
+  button {
+    font-size: 2em;
+    padding: 4px 8px;
+  }
+
+  .contact {
+    font-size: 0.85em;
+    left: 50%;
+    bottom: 5px;
+  }
+}
