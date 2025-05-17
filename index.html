@@ -6,160 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.png" type="image/png">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fdfdfd;
-      margin: 0;
-      overflow: hidden;
-    }
-
-    h1 {
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'Courier New', monospace;
-      font-size: 3em;
-      color: #000;
-      background: #fdfdfd;
-      padding: 20px 40px;
-      z-index: 1000;
-    }
-
-    .tabs {
-      position: absolute;
-      top: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-    }
-
-    .tab {
-      padding: 10px 20px;
-      margin: 0 5px;
-      border: none;
-      background-color: #ddd;
-      cursor: pointer;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    .tab.active {
-      background-color: #aaa;
-      color: white;
-    }
-
-    .intro {
-      position: relative;
-      top: 170px;
-      text-align: center;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #333;
-    }
-
-    .slider {
-      position: absolute;
-      top: 260px;
-      left: 0;
-      width: 100vw;
-      height: calc(100vh - 320px);
-      overflow: hidden;
-      display: none;
-    }
-
-    .slider.active {
-      display: block;
-    }
-
-    .slider-window {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .slider-track {
-      display: flex;
-      height: 100%;
-      transition: transform 0.8s ease-in-out;
-    }
-
-    .slide {
-      width: 100vw;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .caption {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(255,255,255,0.7);
-      padding: 8px 12px;
-      font-size: 0.9em;
-      color: #333;
-      font-style: italic;
-      border-radius: 8px;
-      max-width: 40%;
-      text-align: right;
-    }
-
-    button.prev,
-    button.next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: transparent;
-      border: none;
-      font-size: 2.5em;
-      color: #f3edec;
-      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    button.prev { left: 10px; }
-    button.next { right: 10px; }
-
-    .contact {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 10px 20px;
-      font-size: 0.95em;
-      color: #333;
-      border-radius: 10px;
-      z-index: 1000;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .contact a {
-      text-decoration: none;
-      color: #4A90E2;
-      font-weight: 500;
-    }
-  </style>
 </head>
 <body>
   <h1>MINJAE.P</h1>
 
-  <div class="tabs">
-    <button class="tab active" data-target="creative">창작품</button>
-    <button class="tab" data-target="copy">카피</button>
-  </div>
-
   <div class="intro">
     Working as Economist at the Bank of Korea and Participating in the Post Painting Club as an Artist.<br>
     Creates Oil Artworks focusing on Buildings and Colors, with given Emotions.
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-target="creative">창작품</button>
+    <button class="tab" data-target="copy">카피</button>
   </div>
 
   <!-- 창작품 슬라이더 -->
@@ -202,72 +60,6 @@
     <p>CONTACT: <a href="mailto:ART.MINJAE.P@OUTLOOK.KR">ART.MINJAE.P@OUTLOOK.KR</a></p>
   </div>
 
-  <script>
-    const tabs = document.querySelectorAll('.tab');
-    const sliders = document.querySelectorAll('.slider');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        sliders.forEach(s => s.classList.remove('active'));
-
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.target).classList.add('active');
-        resetSlider(document.getElementById(tab.dataset.target));
-      });
-    });
-
-    function resetSlider(slider) {
-      const track = slider.querySelector('.slider-track');
-      const images = slider.querySelectorAll('img');
-      let index = 0;
-
-      function updateSlider() {
-        track.style.transform = `translateX(-${index * 100}%)`;
-      }
-
-      const prevBtn = slider.querySelector('.prev');
-      const nextBtn = slider.querySelector('.next');
-
-      prevBtn.onclick = () => {
-        if (index > 0) {
-          index--;
-          updateSlider();
-        }
-      };
-
-      nextBtn.onclick = () => {
-        if (index < images.length - 1) {
-          index++;
-          updateSlider();
-        }
-      };
-
-      // 모바일 터치 이벤트 추가
-      let startX = 0;
-      const windowEl = slider.querySelector('.slider-window');
-
-      windowEl.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-      });
-
-      windowEl.addEventListener('touchend', e => {
-        const endX = e.changedTouches[0].clientX;
-        const diffX = endX - startX;
-
-        if (Math.abs(diffX) > 50) {
-          if (diffX < 0 && index < images.length - 1) {
-            index++;
-          } else if (diffX > 0 && index > 0) {
-            index--;
-          }
-          updateSlider();
-        }
-      });
-    }
-
-    // 초기화 첫 탭
-    resetSlider(document.querySelector('.slider.active'));
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
