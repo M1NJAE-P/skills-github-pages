@@ -61,6 +61,7 @@ sliderWindow.addEventListener('touchend', (e) => {
   const endX = e.changedTouches[0].clientX;
   const diffX = endX - startX;
 
+  
   // 스와이프 거리 기준 설정 (예: 50px 이상)
   if (Math.abs(diffX) > 50) {
     if (diffX < 0) {
@@ -70,3 +71,7 @@ sliderWindow.addEventListener('touchend', (e) => {
     }
   }
 });
+
+// 화살표 버튼 클릭 시 슬라이드 이동
+document.getElementById('prev').addEventListener('click', goPrev);
+document.getElementById('next').addEventListener('click', goNext);
