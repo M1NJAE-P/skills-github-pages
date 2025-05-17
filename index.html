@@ -3,46 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <title>Portfolio of Oil Painting Artworks for MINJAE.P</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.png" type="image/png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <h1>MINJAE.P</h1>
 
   <div class="intro">
-    <p>
-      Working as Economist at the Bank of Korea and Participating in the Post Painting Club as an Artist.<br>
-      Creates Oil Artworks focusing on Buildings and Colors, with given Emotions.
-    </p>
+    Working as Economist at the Bank of Korea and Participating in the Post Painting Club as an Artist.<br>
+    Creates Oil Artworks focusing on Buildings and Colors, with given Emotions.
   </div>
 
-  <div class="slider">
-    <button id="prev">&#10094;</button>
+  <div class="tabs">
+    <button class="tab active" data-target="creative">창작품</button>
+    <button class="tab" data-target="copy">카피</button>
+  </div>
+
+  <!-- 창작품 슬라이더 -->
+  <div class="slider active" id="creative">
+    <button class="prev">&#10094;</button>
     <div class="slider-window">
       <div class="slider-track">
-
         <div class="slide">
           <img src="images/painting1.jpg" alt="Painting 1">
           <div class="caption">"감정의 도해 (Decomposition of Emotion)"<br>2025, 90.9x72.7cm, Oil on Canvas</div>
         </div>
-
         <div class="slide">
           <img src="images/painting2.jpg" alt="Painting 2">
           <div class="caption">"상이의 기억 (Memory of Heterogeneity)"<br>2025, 90.9x72.7cm, Oil on Canvas</div>
         </div>
-
       </div>
     </div>
-    <button id="next">&#10095;</button>
+    <button class="next">&#10095;</button>
   </div>
+
+  <!-- 카피 슬라이더 -->
+  <div class="slider" id="copy">
+    <button class="prev">&#10094;</button>
+    <div class="slider-window">
+      <div class="slider-track">
+        <div class="slide">
+          <img src="images/copy1.jpg" alt="Copy 1">
+          <div class="caption">"Study of Monet"<br>2024, Oil on Canvas</div>
+        </div>
+        <div class="slide">
+          <img src="images/copy2.jpg" alt="Copy 2">
+          <div class="caption">"After Van Gogh"<br>2024, Oil on Canvas</div>
+        </div>
+      </div>
+    </div>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <div class="contact">
+    <p>CONTACT: <a href="mailto:ART.MINJAE.P@OUTLOOK.KR">ART.MINJAE.P@OUTLOOK.KR</a></p>
+  </div>
+
   <script src="script.js"></script>
-
-  <!-- 기존 코드 끝부분 바로 위에 추가 -->
-<div class="contact">
-  <p>CONTACT: <a href="mailto:ART.MINJAE.P@OUTLOOK.KR">ART.MINJAE.P@OUTLOOK.KR</a></p>
-</div>
-</body>
-
 </body>
 </html>
