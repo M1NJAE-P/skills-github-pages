@@ -46,7 +46,7 @@ h1 {
 
 .slider {
   position: absolute;
-  top: 150px; /* 헤더 높이만큼 내려줌 */
+  top: 200px; /* 헤더 높이만큼 내려줌 */
   left: 0;
   width: 100vw;
   height: calc(100vh - 150px); /* 헤더 제외한 높이 */
@@ -108,6 +108,40 @@ button {
 
   /* 그림자 추가 */
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  z-index: 999;
+}
+
+.tab {
+  padding: 10px 24px;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: #f3f3f3;
+  color: #333;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background-color: #ddd;
+}
+
+.tab.active {
+  background-color: #4A90E2;
+  color: white;
 }
 
 
