@@ -112,16 +112,15 @@ button {
 
 .tabs {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: center; /* 가운데 정렬 */
+  gap: 20px;                /* 버튼 사이 간격 */
+  margin: 20px auto;
   padding: 10px 0;
   background: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: fixed;
-  top: 100px;
-  width: 100%;
-  z-index: 999;
+  z-index: 10;
+  position: relative;
 }
+
 
 .tab {
   padding: 10px 24px;
@@ -132,8 +131,10 @@ button {
   border: none;
   border-radius: 25px;
   cursor: pointer;
+  white-space: nowrap; /* 줄바꿈 방지 */
   transition: all 0.2s ease;
 }
+
 
 .tab:hover {
   background-color: #ddd;
